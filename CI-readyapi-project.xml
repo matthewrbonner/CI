@@ -117,10 +117,15 @@ available inventory in the system</con:description>
           </con:restRequest>
         </con:config>
       </con:testStep>
-      <con:testStep type="restrequest" name="/inventory 2" id="7dd6d051-bc48-42ed-99fa-bc7030f1ee3e">
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="0933d549-0b78-467c-bcd4-ca075c1c94fd" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="/inventory 2" id="66244f60-e1af-4cc8-9452-6fb3f11e63a2">
         <con:settings/>
         <con:config service="Simple Inventory API" resourcePath="/inventory" methodName="addInventory" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="/inventory 2" id="8e70b285-d3c3-4e71-abc7-d21ac31e3e8d" mediaType="application/json">
+          <con:restRequest name="/inventory 2" id="8e70b285-d3c3-4e71-abc7-d21ac31e3e8d" mediaType="application/json" postQueryString="false">
             <con:settings/>
             <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
             <con:request>{\r
@@ -137,6 +142,7 @@ available inventory in the system</con:description>
               <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
               <con:authType>No Authorization</con:authType>
             </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:parameters/>
           </con:restRequest>
         </con:config>
