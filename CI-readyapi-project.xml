@@ -96,6 +96,57 @@ available inventory in the system</con:description>
       </con:method>
     </con:resource>
   </con:interface>
+  <con:testSuite id="d2fbe35f-795a-49e1-90bc-2cdcec7d82b2" name="Simple Inventory API Test Suite 1">
+    <con:description>The test suite generated for the REST service [Simple Inventory API]</con:description>
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="7b24791e-c63b-42d0-9f41-71563514711f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Simple Inventory API Test Case" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="/inventory" id="9cd16e1a-eab6-48a9-850c-564eae0081e6">
+        <con:settings/>
+        <con:config service="Simple Inventory API" resourcePath="/inventory" methodName="searchInventory" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="/inventory" id="374b0b25-18e6-470b-8ade-db85d2342d57" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="/inventory 2" id="7dd6d051-bc48-42ed-99fa-bc7030f1ee3e">
+        <con:settings/>
+        <con:config service="Simple Inventory API" resourcePath="/inventory" methodName="addInventory" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="/inventory 2" id="8e70b285-d3c3-4e71-abc7-d21ac31e3e8d" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
+            <con:request>{\r
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",\r
+  "name" : "Widget Adapter",\r
+  "releaseDate" : "2016-08-29T09:12:33.001Z",\r
+  "manufacturer" : {\r
+    "name" : "ACME Corporation",\r
+    "homePage" : "https://www.acme-corp.com",\r
+    "phone" : "408-867-5309"\r
+  }\r
+}</con:request>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
   <con:properties/>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
