@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ca510dcb-2a66-4342-a477-f725fa932d78" created="3.42.2" activeEnvironment="Default environment" name="CI" projectVersion="" updated="3.42.2 2022-12-14T07:11:24Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="5fad6ac6-7877-4503-a440-b4be630144dc" name="Simple Inventory API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://api.swaggerhub.com/apis/MattB13/Transactions/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>This is a simple API</con:description>
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="https://api.swaggerhub.com/apis/MattB13/Transactions/1.0.0">
+      <con:part>
+        <con:url>https://api.swaggerhub.com/apis/MattB13/Transactions/1.0.0</con:url>
+        <con:content>{"openapi":"3.0.0","servers":[{"description":"SwaggerHub API Auto Mocking","url":"https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0"}],"info":{"description":"This is a simple API","version":"1.0.0","title":"Simple Inventory API","contact":{"email":"you@your-company.com"},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0.html"}},"tags":[{"name":"admins","description":"Secured Admin-only calls"},{"name":"developers","description":"Operations available to regular developers"}],"paths":{"/inventory":{"get":{"tags":["developers"],"summary":"searches inventory","operationId":"searchInventory","description":"By passing in the appropriate options, you can search for\navailable inventory in the system\n","parameters":[{"in":"query","name":"searchString","description":"pass an optional search string for looking up inventory","required":false,"schema":{"type":"string"}},{"in":"query","name":"skip","description":"number of records to skip for pagination","schema":{"type":"integer","format":"int32","minimum":0}},{"in":"query","name":"limit","description":"maximum number of records to return","schema":{"type":"integer","format":"int32","minimum":0,"maximum":50}}],"responses":{"200":{"description":"search results matching criteria","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/InventoryItem"}}}}},"401":{"description":"bad input parameter"}}},"post":{"tags":["admins"],"summary":"adds an inventory item","operationId":"addInventory","description":"Adds an item to the system","responses":{"201":{"description":"item created"},"404":{"description":"invalid input, object invalid"},"409":{"description":"an existing item already exists"}},"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/InventoryItem"}}},"description":"Inventory item to add"}}}},"components":{"schemas":{"InventoryItem":{"type":"object","required":["id","name","manufacturer","releaseDate"],"properties":{"id":{"type":"string","format":"uuid","example":"d290f1ee-6c54-4b01-90e6-d701748f0851"},"name":{"type":"string","example":"Widget Adapter"},"releaseDate":{"type":"string","format":"date-time","example":"2016-08-29T09:12:33.001Z"},"manufacturer":{"$ref":"#/components/schemas/Manufacturer"}}},"Manufacturer":{"required":["name"],"properties":{"name":{"type":"string","example":"ACME Corporation"},"homePage":{"type":"string","format":"url","example":"https://www.acme-corp.com"},"phone":{"type":"string","example":"408-867-5309"}},"type":"object"}}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/inventory" path="/inventory" id="d4578f98-b490-489b-ac9c-0399370d2fee">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="searchInventory" id="dd6dba0e-94d9-4bfa-8303-9c33febd6336" method="GET">
+        <con:description>By passing in the appropriate options, you can search for
+available inventory in the system</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>searchString</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>pass an optional search string for looking up inventory</con:description>
+          </con:parameter>
+          <con:parameter>
+            <con:name>skip</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>number of records to skip for pagination</con:description>
+          </con:parameter>
+          <con:parameter>
+            <con:name>limit</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>maximum number of records to return</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>search results matching criteria</con:description>
+          <con:sampleContent>[ {
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "name" : "Widget Adapter",
+  "releaseDate" : "2016-08-29T09:12:33.001Z",
+  "manufacturer" : {
+    "name" : "ACME Corporation",
+    "homePage" : "https://www.acme-corp.com",
+    "phone" : "408-867-5309"
+  }
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="374b0b25-18e6-470b-8ade-db85d2342d57" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="addInventory" id="6b1c1d7e-2e9e-4b1c-b798-6ad591223165" method="POST">
+        <con:description>Adds an item to the system</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "name" : "Widget Adapter",
+  "releaseDate" : "2016-08-29T09:12:33.001Z",
+  "manufacturer" : {
+    "name" : "ACME Corporation",
+    "homePage" : "https://www.acme-corp.com",
+    "phone" : "408-867-5309"
+  }
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="8e70b285-d3c3-4e71-abc7-d21ac31e3e8d" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://virtserver.swaggerhub.com/MattB13/Transaction/1.0.0</con:endpoint>
+          <con:request>{\r
+  "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",\r
+  "name" : "Widget Adapter",\r
+  "releaseDate" : "2016-08-29T09:12:33.001Z",\r
+  "manufacturer" : {\r
+    "name" : "ACME Corporation",\r
+    "homePage" : "https://www.acme-corp.com",\r
+    "phone" : "408-867-5309"\r
+  }\r
+}</con:request>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
